@@ -1,5 +1,8 @@
 FROM nginx:1.13.8-alpine
 
-EXPOSE 80
-
+# Directory for pem files
+RUN mkdir -p /etc/nginx/ssl
+ADD ssl /etc/nginx/ssl
 COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 443
